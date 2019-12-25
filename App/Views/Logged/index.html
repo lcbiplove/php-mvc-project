@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ logged.username }}{% endblock %}
+
+{% block body %}
+    <div class="login-container bg-white text-capitalize">
+        <div class="pl-2 pt-2 show-titles over-auto">
+            {% for eachtitle in titles %}
+                {% if not showprivate %}
+                    {% if eachtitle.is_private == 0 %}
+                        <div>
+                            <a href="/{{ path }}/{{ eachtitle.title_id }}/">{{ eachtitle.title_name }}</a>
+                        </div>
+                    {% else %}
+
+                    {% endif %}
+                {% else%}
+                    <div>
+                        <a href="/{{ path }}/{{ eachtitle.title_id }}/">{{ eachtitle.title_name }}</a>
+                        <span style="font-size: 11px;" class="text-warning">{% if eachtitle.is_private == 1 %}<i class="fas fa-lock"></i>{% endif %}</span>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% if showprivate %}
+            <div class="add">
+                <div>
+                    <a href="/{{ logged.username }}/add/">Add</a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
+

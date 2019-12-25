@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ user.username }}{% endblock %}
+
+{% block body %}
+
+    <div class="login-container bg-white">
+        <div class="row">
+            <div class="col-md-12 text-center mt-5">
+                <h1><small class="joker-color">Login</small></h1>
+            </div>
+        </div>
+        <div class="row">
+            <form action="/{{ user.username }}/go-login/" method="POST" class="mt-5 w-100 text-center">
+                <div>
+                    <label for="usernameId"></label>
+                    <input type="text" name="username" id="usernameId" class="input-login" placeholder="Username">
+                </div>
+                <div class="mt-4">
+                    <label for="passwordId"></label>
+                    <input type="password" name="password" id="passwordId" class="input-login" placeholder="Password">
+                </div>
+                <div class="mt-5">
+                    <button name="login" type="submit" class="login-btn" value="{{ user.username }}">Login</button>
+                </div>
+                <div class="mt-5 joker-color">
+                    <h4><strong><small>"Why so serious !!!"</small></strong></h4>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

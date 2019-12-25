@@ -1,0 +1,4 @@
+Add sudo user in centos
+ - usermod -aG wheel USERNAME
+Remove sudo user in centos
+ -  sudo deluser USERNAME sudo
